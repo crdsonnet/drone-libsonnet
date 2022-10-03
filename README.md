@@ -7,7 +7,7 @@ Jsonnet library for generating Drone pipelines.
 Install it with jsonnet-bundler:
 
 ```console
-jb install https://github.com/Duologic/drone-libsonnet`
+jb install https://github.com/Duologic/drone-libsonnet
 ```
 
 Import into your jsonnet:
