@@ -16,6 +16,6 @@ Import into your jsonnet:
 local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
 
 {
-  drone: drone.dockerPipeline.new('myPipeline'),
+  drone: drone.pipeline_docker.new('myPipeline'),
 }
 ```
