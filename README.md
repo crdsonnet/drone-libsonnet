@@ -16,6 +16,18 @@ Import into your jsonnet:
 local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
 
 {
-  drone: drone.pipeline_docker.new('myPipeline'),
+  '.drone.yaml': drone.render.toYaml({
+    pipeline1:
+      drone.pipeline_docker.new('pipeline1'),
+    pipeline2:
+      drone.pipeline_docker.new('pipeline2'),
+  }),
 }
 ```
+
+Render the YAML file:
+
+```console
+jsonnet -J vendor -S -m . test.libsonnet
+```
+

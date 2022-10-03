@@ -1,5 +1,6 @@
 local crdsonnet = import 'github.com/Duologic/crdsonnet/crdsonnet/main.libsonnet';
 
+local render = import './render.libsonnet';
 local schema = import './schema.libsonnet';
 
 std.foldl(
@@ -45,4 +46,6 @@ std.foldl(
       + self.get.withPath(path)
       + self.get.withName(key),
   },
+
+  render: render,
 }
