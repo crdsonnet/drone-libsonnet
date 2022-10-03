@@ -20,10 +20,29 @@ std.foldl(
   {}
 )
 + {
-  pipeline_docker+: {
+  // Add `new(name)` for each pipeline object
+  [k]+: {
     new(name):
       self.withKind()
       + self.withType()
       + self.withName(name),
+  }
+  for k in [
+    'pipeline_docker',
+    'pipeline_kubernetes',
+    'pipeline_exec',
+    'pipeline_ssh',
+    'pipeline_digitalocean',
+    'pipeline_macstadium',
+  ]
+}
++ {
+  kind_secret+: {
+    new(name, path, key):
+      self.withKind()
+      + self.withType()
+      + self.withName(name)
+      + self.get.withPath(path)
+      + self.get.withName(key),
   },
 }
