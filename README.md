@@ -32,7 +32,7 @@ Render the YAML file:
 jsonnet -J vendor -S -m . drone.libsonnet
 ```
 
-> Note that `drone.render.toYaml` uses 'std.manifestYamlStream`. At Grafana Labs we
+> Note that `drone.render.toYaml` uses `std.manifestYamlStream`. At Grafana Labs we
 > noticed that this function suffers from performance issues (taking 16 seconds to render
 > a 23K LoC YAML). Its much faster to render the drone pipeline into json with
 > `drone.render.getDroneObjects()` and use the `drone-cli` tooling to convert that into
