@@ -35,7 +35,5 @@
   toYaml(objects):
     std.manifestYamlStream(
       self.getDroneObjects(objects),
-      c_document_end=false,
-      quote_keys=false,
     ),
 }
