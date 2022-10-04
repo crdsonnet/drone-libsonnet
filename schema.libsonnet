@@ -8,12 +8,38 @@ local schema = import 'drone.json';
 // * step fills the gaps in steps_*
 // * allConditions gets extended with paths and cron properties
 
+local definitions =
+  schema.definitions
+  {
+    allConditions+: {
+      properties+: {
+        cron: {
+          '$ref': '#/definitions/conditions',
+        },
+        paths: {
+          '$ref': '#/definitions/conditions',
+        },
+      },
+    },
+    kind_pipeline+: {
+      properties+: {
+        clone+: {
+          properties+: {
+            retries: {
+              type: 'integer',
+            },
+          },
+        },
+      },
+    },
+  };
+
 schema {
   definitions:
     {
-      local pipelineDefinition = schema.definitions.kind_pipeline,
-      local stepDefinition = schema.definitions.step,
-      local definition = schema.definitions[d],
+      local pipelineDefinition = definitions.kind_pipeline,
+      local stepDefinition = definitions.step,
+      local definition = definitions[d],
       [d]:
         if std.startsWith(d, 'pipeline_')
         then
@@ -44,21 +70,10 @@ schema {
                 },
               }
               for item in definition.allOf
+              if 'properties' in item
             ],
           }
         else definition
-      for d in std.objectFields(schema.definitions)
-    }
-    + {
-      allConditions+: {
-        properties+: {
-          cron: {
-            '$ref': '#/definitions/conditions',
-          },
-          paths: {
-            '$ref': '#/definitions/conditions',
-          },
-        },
-      },
+      for d in std.objectFields(definitions)
     },
 }
