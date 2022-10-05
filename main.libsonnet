@@ -21,13 +21,12 @@ std.foldl(
   {}
 )
 + {
-  // Add `new(name, steps)` for each pipeline object
   [k]+: {
-    new(name, steps):
+    // Add `new(name)` for each pipeline object
+    new(name):
       self.withKind()
       + self.withType()
-      + self.withName(name)
-      + self.withSteps(steps),
+      + self.withName(name),
 
     clone+: {
       withDisable(): {
@@ -38,6 +37,39 @@ std.foldl(
           retries:: 0,
         },
       },
+    },
+
+    // Extend trigger with useful shortcuts
+    trigger+: {
+      onPushToBranches(branches):
+        self.event.withInclude('push')
+        + self.branch.withInclude(branches),
+
+      onPushToMasterBranch:
+        self.OnPushToBranches(['master']),
+
+      onPushToMainBranch:
+        self.OnPushToBranches(['main']),
+
+      onPullRequest:
+        self.event.withInclude('pull_request'),
+
+      onPromotion(targets):
+        self.event.withInclude('promote')
+        + self.target.withInclude(targets),
+
+      onCronSchedule(schedule):
+        self.event.withInclude('cron')
+        + self.cron.withInclude(schedule),
+
+      hourly: self.onCronSchedule('hourly'),
+      nightly: self.onCronSchedule('nightly'),
+
+      OnModifiedPaths(paths):
+        self.paths.withIncludeMixin(paths),
+
+      OnModifiedPath(path):
+        self.OnModifiedPaths([path]),
     },
   }
   for k in [
@@ -50,10 +82,32 @@ std.foldl(
   ]
 }
 + {
-  // Add `new(name)` for each step object
   [k]+: {
+    // Add `new(name)` for each step object
     new(name):
       self.withName(name),
+
+    // Extend when with useful shortcuts
+    when+: {
+      onPushToBranch(branch_name):
+        self.withEvent('push')
+        + self.withEvent(branch_name),
+
+      onPushToMasterBranch:
+        self.OnPushToBranch('master'),
+
+      onPushToMainBranch:
+        self.OnPushToBranch('main'),
+
+      onPullRequest:
+        self.withEvent('pull_request'),
+
+      onSchedule::
+        self.withEvent('cron'),
+
+      onSuccess: self.withStatus('success'),
+      onFailure: self.withStatus('failure'),
+    },
   }
   for k in [
     'step_docker',
