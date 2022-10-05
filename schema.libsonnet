@@ -54,8 +54,8 @@ schema {
             properties: {
               local property = definition.properties[p],
               [p]:
-                if property == {} && p in pipelineDefinition.properties
-                then pipelineDefinition.properties[p]
+                if p in pipelineDefinition.properties
+                then pipelineDefinition.properties[p] + property
                 else property
               for p in std.objectFields(definition.properties)
             },
