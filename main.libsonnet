@@ -28,6 +28,15 @@ std.foldl(
       + self.withType()
       + self.withName(name)
       + self.withSteps(steps),
+
+    clone+: {
+      withDisable(): {
+        disable: true,
+        // hide other attributes on disable
+        depth:: 0,
+        retries:: 0,
+      },
+    },
   }
   for k in [
     'pipeline_docker',
