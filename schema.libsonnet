@@ -21,6 +21,12 @@ local definitions =
         },
       },
     },
+    platform+: {
+      properties+: {
+        'arсh':: {},  // the `c` in this key is a cyrillic `c`, which jsonnet can't process in a function name
+        arch: super['arсh'],
+      },
+    },
     kind_pipeline+: {
       properties+: {
         clone+: {
