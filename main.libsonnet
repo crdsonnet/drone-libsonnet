@@ -31,10 +31,12 @@ std.foldl(
 
     clone+: {
       withDisable(): {
-        disable: true,
-        // hide other attributes on disable
-        depth:: 0,
-        retries:: 0,
+        clone: {
+          disable: true,
+          // hide other attributes on disable
+          depth:: 0,
+          retries:: 0,
+        },
       },
     },
   }
