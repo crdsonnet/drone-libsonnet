@@ -1,4 +1,5 @@
 ---
-kind: "pipeline"
-name: "pipeline1"
-type: "docker"
+"kind": "pipeline"
+"name": "pipeline1"
+"type": "docker"
+...
