@@ -91,7 +91,7 @@ std.foldl(
     when+: {
       onPushToBranch(branch_name):
         self.withEvent(['push'])
-        + self.withBranch(branch_name),
+        + self.withBranch([branch_name]),
 
       onPushToMasterBranch: self.onPushToBranch('master'),
       onPushToMainBranch: self.onPushToBranch('main'),
