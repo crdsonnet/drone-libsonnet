@@ -128,11 +128,13 @@ std.foldl(
   kind_secret+: {
     new(name, path, key):
       self.withKind()
-      + self.withType()
       + self.withName(name)
       + self.get.withPath(path)
       + self.get.withName(key),
   },
+  secret: self.kind_secret,
+
+  fromSecret: super.secret.from_secret,
 
   render: render,
 }
