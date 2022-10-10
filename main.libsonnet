@@ -65,11 +65,11 @@ std.foldl(
       hourly: self.onCronSchedule('hourly'),
       nightly: self.onCronSchedule('nightly'),
 
-      OnModifiedPaths(paths):
+      onModifiedPaths(paths):
         self.paths.withIncludeMixin(paths),
 
-      OnModifiedPath(path):
-        self.OnModifiedPaths([path]),
+      onModifiedPath(path):
+        self.onModifiedPaths([path]),
     },
   }
   for k in [
@@ -93,21 +93,18 @@ std.foldl(
         self.withEvent('push')
         + self.withEvent(branch_name),
 
-      onPushToMasterBranch:
-        self.OnPushToBranch('master'),
+      onPushToMasterBranch: self.OnPushToBranch('master'),
+      onPushToMainBranch: self.OnPushToBranch('main'),
 
-      onPushToMainBranch:
-        self.OnPushToBranch('main'),
-
-      onPullRequest:
-        self.withEvent('pull_request'),
-
-      onSchedule::
-        self.withEvent('cron'),
+      onPullRequest: self.withEvent('pull_request'),
+      onSchedule: self.withEvent('cron'),
 
       onSuccess: self.withStatus('success'),
       onFailure: self.withStatus('failure'),
     },
+
+    dependsOnCloneStep:
+      self.withDependsOn('clone'),
   }
   for k in [
     'step_docker',
