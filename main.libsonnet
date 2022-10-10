@@ -42,12 +42,12 @@ std.foldl(
     // Extend trigger with useful shortcuts
     trigger+: {
       onPushToBranches(branches):
-        self.event.withInclude('push')
-        + self.branch.withInclude(branches),
+        self.event.withIncludeMixin('push')
+        + self.branch.withIncludeMixin(branches),
 
       onPullRequestAndPushToBranches(branches):
-        self.event.withInclude(['push', 'pull_request'])
-        + self.branch.withInclude(branches),
+        self.event.withIncludeMixin(['pull_request', 'push'])
+        + self.branch.withIncludeMixin(branches),
 
       onPushToMasterBranch:
         self.onPushToBranches(['master']),
@@ -56,15 +56,15 @@ std.foldl(
         self.onPushToBranches(['main']),
 
       onPullRequest:
-        self.event.withInclude('pull_request'),
+        self.event.withIncludeMixin('pull_request'),
 
       onPromotion(targets):
-        self.event.withInclude('promote')
-        + self.target.withInclude(targets),
+        self.event.withIncludeMixin('promote')
+        + self.target.withIncludeMixin(targets),
 
       onCronSchedule(schedule):
-        self.event.withInclude('cron')
-        + self.cron.withInclude(schedule),
+        self.event.withIncludeMixin('cron')
+        + self.cron.withIncludeMixin(schedule),
 
       hourly: self.onCronSchedule('hourly'),
       nightly: self.onCronSchedule('nightly'),
@@ -94,14 +94,13 @@ std.foldl(
     // Extend when with useful shortcuts
     when+: {
       onPushToBranch(branch_name):
-        self.withEvent(['push'])
-        + self.withBranch([branch_name]),
+        self.event.withIncludeMixin(['push'])
+        + self.branch.withIncludeMixin([branch_name]),
 
       onPushToMasterBranch: self.onPushToBranch('master'),
       onPushToMainBranch: self.onPushToBranch('main'),
 
-      onPullRequest: self.withEvent(['pull_request']),
-      onSchedule: self.withEvent(['cron']),
+      onPullRequest: self.event.withIncludeMixin(['pull_request']),
 
       onSuccess: self.withStatus(['success']),
       onFailure: self.withStatus(['failure']),
