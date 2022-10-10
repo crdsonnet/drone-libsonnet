@@ -93,8 +93,8 @@ std.foldl(
         self.withEvent('push')
         + self.withEvent(branch_name),
 
-      onPushToMasterBranch: self.OnPushToBranch('master'),
-      onPushToMainBranch: self.OnPushToBranch('main'),
+      onPushToMasterBranch: self.onPushToBranch('master'),
+      onPushToMainBranch: self.onPushToBranch('main'),
 
       onPullRequest: self.withEvent('pull_request'),
       onSchedule: self.withEvent('cron'),
