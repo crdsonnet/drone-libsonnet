@@ -45,6 +45,10 @@ std.foldl(
         self.event.withInclude('push')
         + self.branch.withInclude(branches),
 
+      onPullRequestAndPushToBranches(branches):
+        self.event.withInclude(['push', 'pull_request'])
+        + self.branch.withInclude(branches),
+
       onPushToMasterBranch:
         self.onPushToBranches(['master']),
 
