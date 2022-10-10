@@ -90,17 +90,17 @@ std.foldl(
     // Extend when with useful shortcuts
     when+: {
       onPushToBranch(branch_name):
-        self.withEvent('push')
-        + self.withEvent(branch_name),
+        self.withEvent(['push'])
+        + self.withBranch(branch_name),
 
       onPushToMasterBranch: self.onPushToBranch('master'),
       onPushToMainBranch: self.onPushToBranch('main'),
 
-      onPullRequest: self.withEvent('pull_request'),
-      onSchedule: self.withEvent('cron'),
+      onPullRequest: self.withEvent(['pull_request']),
+      onSchedule: self.withEvent(['cron']),
 
-      onSuccess: self.withStatus('success'),
-      onFailure: self.withStatus('failure'),
+      onSuccess: self.withStatus(['success']),
+      onFailure: self.withStatus(['failure']),
     },
 
     dependsOnCloneStep:
