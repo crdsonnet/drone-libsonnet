@@ -134,7 +134,7 @@ std.foldl(
   },
   secret: self.kind_secret,
 
-  fromSecret: super.secret.from_secret,
+  fromSecret: super.secret.withFromSecret,
 
   render: render,
 }
