@@ -123,6 +123,8 @@ std.foldl(
     new(name, image):
       self.withName(name)
       + self.withImage(image),
+
+    withPrivileged(): super.withPrivileged(true),
   },
 
   kind_secret+: {
