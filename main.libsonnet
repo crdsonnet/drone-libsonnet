@@ -1,4 +1,5 @@
 local crdsonnet = import 'github.com/Duologic/crdsonnet/crdsonnet/main.libsonnet';
+local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
 local render = import './render.libsonnet';
 local schema = import './schema.libsonnet';
@@ -16,10 +17,13 @@ std.foldl(
       [],
       schema.definitions[m],
       schema.definitions,
-    ),
+    )
+    + { [m]+: { '#': d.pkg(m, 'github.com/Duologic/drone-libsonnet', '', 'main.libsonnet') } }
+  ,
   std.objectFields(schema.definitions),
   {}
 )
+{ '#': d.pkg('drone', 'github.com/Duologic/drone-libsonnet', '', 'main.libsonnet') }
 + {
   [k]+: {
     // Add `new(name)` for each pipeline object
@@ -27,6 +31,10 @@ std.foldl(
       self.withKind()
       + self.withType()
       + self.withName(name),
+
+    // These exist as first-class objects, no need to include them here.
+    services:: {},
+    steps:: {},
 
     clone+: {
       withDisable(): {

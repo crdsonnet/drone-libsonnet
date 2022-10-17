@@ -7,3 +7,7 @@ test:
 
 drone.json:
 	curl https://json.schemastore.org/drone.json
+
+docs:
+	jsonnet -J vendor -S -c -m docs docs.jsonnet
+
