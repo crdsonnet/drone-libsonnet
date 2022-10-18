@@ -43,8 +43,34 @@ std.foldl(
   '#': d.pkg(
     'drone',
     'github.com/Duologic/drone-libsonnet',
-    schema.title,
-    'main.libsonnet'
+    |||
+      Jsonnet library for generating Drone CI configuration file.
+
+      ### Example Configuration
+
+      ```jsonnet
+      %s
+      ```
+
+      Render the YAML file:
+
+      ```console
+      drone jsonnet --stream \
+                    --format \
+                    --source <(jsonnet -J vendor/ drone.jsonnet) \
+                    --target .drone.yaml
+      ```
+
+      > Originally the intention was to render YAML with `std.manifestYamlStream()`,
+      > however at Grafana Labs we noticed that this function suffers from performance
+      > issues (taking 16 seconds to render a 23K LoC YAML). Its much faster to render the
+      > drone pipeline into json with `drone.render.getDroneObjects()` and use the `drone`
+      > cli tooling to do the YAML conversion. Alternatively `jsonnet -y` can be used,
+      > which delivers a valid YAML stream (json as valid YAML) but it might not look as
+      > nice.
+
+    ||| % (importstr 'example/drone.jsonnet'),
+    'main.libsonnet',
   ),
 }
 + {
@@ -165,7 +191,9 @@ std.foldl(
       + self.get.withPath(path)
       + self.get.withName(key),
   },
-  secret: self.kind_secret,
+  secret:
+    { '#'+:: { name: 'secret' } }
+    + self.kind_secret,
 
   fromSecret: super.secret.withFromSecret,
 

@@ -19,7 +19,6 @@
 * [pipeline_macstadium](pipeline_macstadium.md)
 * [pipeline_ssh](pipeline_ssh.md)
 * [platform](platform.md)
-* [kind_secret](kind_secret.md)
 * [services](services.md)
 * [step](step.md)
 * [step_digitalocean](step_digitalocean.md)
