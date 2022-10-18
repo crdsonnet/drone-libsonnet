@@ -41,37 +41,34 @@ std.foldl(
 )
 + {
   '#': d.pkg(
-    'drone',
-    'github.com/Duologic/drone-libsonnet',
-    |||
-      Jsonnet library for generating Drone CI configuration file.
+         'drone',
+         'github.com/Duologic/drone-libsonnet',
+         'Jsonnet library for generating Drone CI configuration file.',
+         'main.libsonnet',
+       )
+       + d.package.withUsageTemplate(|||
+         ```jsonnet
+         %s
+         ```
 
-      ### Example Configuration
+         Render the YAML file:
 
-      ```jsonnet
-      %s
-      ```
+         ```console
+         drone jsonnet --stream \
+                       --format \
+                       --source <(jsonnet -J vendor/ drone.jsonnet) \
+                       --target .drone.yaml
+         ```
 
-      Render the YAML file:
+         > Originally the intention was to render YAML with `std.manifestYamlStream()`,
+         > however at Grafana Labs we noticed that this function suffers from performance
+         > issues (taking 16 seconds to render a 23K LoC YAML). Its much faster to render the
+         > drone pipeline into json with `drone.render.getDroneObjects()` and use the `drone`
+         > cli tooling to do the YAML conversion. Alternatively `jsonnet -y` can be used,
+         > which delivers a valid YAML stream (json as valid YAML) but it might not look as
+         > nice.
 
-      ```console
-      drone jsonnet --stream \
-                    --format \
-                    --source <(jsonnet -J vendor/ drone.jsonnet) \
-                    --target .drone.yaml
-      ```
-
-      > Originally the intention was to render YAML with `std.manifestYamlStream()`,
-      > however at Grafana Labs we noticed that this function suffers from performance
-      > issues (taking 16 seconds to render a 23K LoC YAML). Its much faster to render the
-      > drone pipeline into json with `drone.render.getDroneObjects()` and use the `drone`
-      > cli tooling to do the YAML conversion. Alternatively `jsonnet -y` can be used,
-      > which delivers a valid YAML stream (json as valid YAML) but it might not look as
-      > nice.
-
-    ||| % (importstr 'example/drone.jsonnet'),
-    'main.libsonnet',
-  ),
+       ||| % (importstr 'example/drone.jsonnet')),
 }
 + {
   [k]+: {

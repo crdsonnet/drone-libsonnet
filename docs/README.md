@@ -2,8 +2,15 @@
 
 Jsonnet library for generating Drone CI configuration file.
 
-### Example Configuration
+## Install
 
+```
+jb install github.com/Duologic/drone-libsonnet@master
+```
+
+## Usage
+
+```jsonnet
 ```jsonnet
 // drone.jsonnet
 local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
@@ -44,17 +51,6 @@ drone jsonnet --stream \
 > nice.
 
 
-
-## Install
-
-```
-jb install github.com/Duologic/drone-libsonnet@master
-```
-
-## Usage
-
-```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet"
 ```
 
 ## Subpackages
