@@ -1,6 +1,6 @@
 # package drone
 
-
+Drone CI configuration file
 
 ## Install
 

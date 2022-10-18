@@ -11,7 +11,10 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local pipeline_kubernetes = import "github.com/Duologic/drone-libsonnet/main.libsonnet"
+local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+
+drone.pipeline_kubernetes.<attribute>
+
 ```
 
 ## Index

@@ -18,12 +18,35 @@ std.foldl(
       schema.definitions[m],
       schema.definitions,
     )
-    + { [m]+: { '#': d.pkg(m, 'github.com/Duologic/drone-libsonnet', '', 'main.libsonnet') } }
+    + {
+      [m]+: {
+        '#': d.package.new(
+               m,
+               'github.com/Duologic/drone-libsonnet',
+               if 'description' in schema.definitions[m]
+               then schema.definitions[m].description
+               else '',
+               'main.libsonnet',
+             )
+             + d.package.withUsageTemplate(|||
+               local drone = import "%(import)s";
+
+               drone.%(name)s.<attribute>
+             |||),
+      },
+    }
   ,
   std.objectFields(schema.definitions),
   {}
 )
-{ '#': d.pkg('drone', 'github.com/Duologic/drone-libsonnet', '', 'main.libsonnet') }
++ {
+  '#': d.pkg(
+    'drone',
+    'github.com/Duologic/drone-libsonnet',
+    schema.title,
+    'main.libsonnet'
+  ),
+}
 + {
   [k]+: {
     // Add `new(name)` for each pipeline object
