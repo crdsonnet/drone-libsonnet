@@ -47,7 +47,6 @@ std.foldl(
          'main.libsonnet',
        )
        + d.package.withUsageTemplate(|||
-         ```jsonnet
          %s
          ```
 
@@ -68,6 +67,7 @@ std.foldl(
          > which delivers a valid YAML stream (json as valid YAML) but it might not look as
          > nice.
 
+         ```
        ||| % (importstr 'example/drone.jsonnet')),
 }
 + {

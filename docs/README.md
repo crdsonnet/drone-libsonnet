@@ -11,7 +11,6 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-```jsonnet
 // drone.jsonnet
 local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
 
@@ -50,6 +49,7 @@ drone jsonnet --stream \
 > which delivers a valid YAML stream (json as valid YAML) but it might not look as
 > nice.
 
+```
 
 ```
 
