@@ -1,4 +1,4 @@
-# package kind_signature
+# package signature
 
 
 
@@ -11,9 +11,9 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+local drone = import "github.com/Duologic/drone-libsonnet";
 
-drone.kind_signature.<attribute>
+drone.signature.<attribute>
 
 ```
 

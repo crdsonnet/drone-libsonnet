@@ -11,26 +11,43 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+local drone = import "github.com/Duologic/drone-libsonnet";
 
-drone.step.<attribute>
+dronepipeline.step.<attribute>
 
 ```
 
 ## Index
 
+* [`fn dependsOnCloneStep()`](#fn-dependsonclonestep)
+* [`fn new(name)`](#fn-new)
 * [`fn withCommands(value)`](#fn-withcommands)
 * [`fn withCommandsMixin(value)`](#fn-withcommandsmixin)
 * [`fn withDependsOn(value)`](#fn-withdependson)
 * [`fn withDependsOnMixin(value)`](#fn-withdependsonmixin)
-* [`fn withDetach(value)`](#fn-withdetach)
 * [`fn withEnvironment(value)`](#fn-withenvironment)
 * [`fn withEnvironmentMixin(value)`](#fn-withenvironmentmixin)
 * [`fn withFailure(value)`](#fn-withfailure)
+* [`fn withImage(value)`](#fn-withimage)
 * [`fn withName(value)`](#fn-withname)
+* [`fn withPrivileged(value)`](#fn-withprivileged)
+* [`fn withPull(value)`](#fn-withpull)
+* [`fn withSettings(value)`](#fn-withsettings)
+* [`fn withSettingsMixin(value)`](#fn-withsettingsmixin)
+* [`fn withVolumes(value)`](#fn-withvolumes)
+* [`fn withVolumesMixin(value)`](#fn-withvolumesmixin)
 * [`fn withWhen(value)`](#fn-withwhen)
 * [`fn withWhenMixin(value)`](#fn-withwhenmixin)
+* [`obj volumes`](#obj-volumes)
+  * [`fn withName(value)`](#fn-volumeswithname)
+  * [`fn withPath(value)`](#fn-volumeswithpath)
 * [`obj when`](#obj-when)
+  * [`fn onFailure()`](#fn-whenonfailure)
+  * [`fn onPullRequest()`](#fn-whenonpullrequest)
+  * [`fn onPushToBranch(branch_name)`](#fn-whenonpushtobranch)
+  * [`fn onPushToMainBranch()`](#fn-whenonpushtomainbranch)
+  * [`fn onPushToMasterBranch()`](#fn-whenonpushtomasterbranch)
+  * [`fn onSuccess()`](#fn-whenonsuccess)
   * [`fn withBranch(value)`](#fn-whenwithbranch)
   * [`fn withBranchMixin(value)`](#fn-whenwithbranchmixin)
   * [`fn withCron(value)`](#fn-whenwithcron)
@@ -85,6 +102,23 @@ drone.step.<attribute>
 
 ## Fields
 
+### fn dependsOnCloneStep
+
+```ts
+dependsOnCloneStep()
+```
+
+`dependsOnCloneStep` is a shorthand for `withDependsOn(['clone'])
+
+
+### fn new
+
+```ts
+new(name)
+```
+
+`new` is a shorthand for creating a new step object
+
 ### fn withCommands
 
 ```ts
@@ -117,14 +151,6 @@ withDependsOnMixin(value)
 
 
 
-### fn withDetach
-
-```ts
-withDetach(value)
-```
-
-
-
 ### fn withEnvironment
 
 ```ts
@@ -149,10 +175,66 @@ withFailure(value)
 
 
 
+### fn withImage
+
+```ts
+withImage(value)
+```
+
+
+
 ### fn withName
 
 ```ts
 withName(value)
+```
+
+
+
+### fn withPrivileged
+
+```ts
+withPrivileged(value)
+```
+
+
+
+### fn withPull
+
+```ts
+withPull(value)
+```
+
+
+
+### fn withSettings
+
+```ts
+withSettings(value)
+```
+
+
+
+### fn withSettingsMixin
+
+```ts
+withSettingsMixin(value)
+```
+
+
+
+### fn withVolumes
+
+```ts
+withVolumes(value)
+```
+
+
+
+### fn withVolumesMixin
+
+```ts
+withVolumesMixin(value)
 ```
 
 
@@ -173,7 +255,85 @@ withWhenMixin(value)
 
 
 
+### obj volumes
+
+
+#### fn volumes.withName
+
+```ts
+withName(value)
+```
+
+
+
+#### fn volumes.withPath
+
+```ts
+withPath(value)
+```
+
+
+
 ### obj when
+
+
+#### fn when.onFailure
+
+```ts
+onFailure()
+```
+
+`onFailure` will conditionally limit this step to a pipeline failure.
+
+
+#### fn when.onPullRequest
+
+```ts
+onPullRequest()
+```
+
+`onPullRequest` will conditionally limit this step to
+a `pull_request` event
+
+
+#### fn when.onPushToBranch
+
+```ts
+onPushToBranch(branch_name)
+```
+
+`onPushToBranch` will conditionally limit this step to a `push` event
+on `<branch_name>`
+
+
+#### fn when.onPushToMainBranch
+
+```ts
+onPushToMainBranch()
+```
+
+`onPushToMainBranch` will conditionally limit this step to a `push`
+event on `main` branch
+
+
+#### fn when.onPushToMasterBranch
+
+```ts
+onPushToMasterBranch()
+```
+
+`onPushToMasterBranch` will conditionally limit this step to a `push`
+event on `master` branch
+
+
+#### fn when.onSuccess
+
+```ts
+onSuccess()
+```
+
+`onSuccess` will conditionally limit this step to a successful
+pipeline
 
 
 #### fn when.withBranch

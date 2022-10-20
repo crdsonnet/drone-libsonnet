@@ -1,4 +1,4 @@
-# package step_ssh
+# package step
 
 
 
@@ -11,14 +11,16 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+local drone = import "github.com/Duologic/drone-libsonnet";
 
-drone.step_ssh.<attribute>
+dronepipeline.step.<attribute>
 
 ```
 
 ## Index
 
+* [`fn dependsOnCloneStep()`](#fn-dependsonclonestep)
+* [`fn new(name)`](#fn-new)
 * [`fn withCommands(value)`](#fn-withcommands)
 * [`fn withCommandsMixin(value)`](#fn-withcommandsmixin)
 * [`fn withDependsOn(value)`](#fn-withdependson)
@@ -30,6 +32,12 @@ drone.step_ssh.<attribute>
 * [`fn withWhen(value)`](#fn-withwhen)
 * [`fn withWhenMixin(value)`](#fn-withwhenmixin)
 * [`obj when`](#obj-when)
+  * [`fn onFailure()`](#fn-whenonfailure)
+  * [`fn onPullRequest()`](#fn-whenonpullrequest)
+  * [`fn onPushToBranch(branch_name)`](#fn-whenonpushtobranch)
+  * [`fn onPushToMainBranch()`](#fn-whenonpushtomainbranch)
+  * [`fn onPushToMasterBranch()`](#fn-whenonpushtomasterbranch)
+  * [`fn onSuccess()`](#fn-whenonsuccess)
   * [`fn withBranch(value)`](#fn-whenwithbranch)
   * [`fn withBranchMixin(value)`](#fn-whenwithbranchmixin)
   * [`fn withCron(value)`](#fn-whenwithcron)
@@ -83,6 +91,23 @@ drone.step_ssh.<attribute>
     * [`fn withIncludeMixin(value)`](#fn-whentargetwithincludemixin)
 
 ## Fields
+
+### fn dependsOnCloneStep
+
+```ts
+dependsOnCloneStep()
+```
+
+`dependsOnCloneStep` is a shorthand for `withDependsOn(['clone'])
+
+
+### fn new
+
+```ts
+new(name)
+```
+
+`new` is a shorthand for creating a new step object
 
 ### fn withCommands
 
@@ -165,6 +190,65 @@ withWhenMixin(value)
 
 
 ### obj when
+
+
+#### fn when.onFailure
+
+```ts
+onFailure()
+```
+
+`onFailure` will conditionally limit this step to a pipeline failure.
+
+
+#### fn when.onPullRequest
+
+```ts
+onPullRequest()
+```
+
+`onPullRequest` will conditionally limit this step to
+a `pull_request` event
+
+
+#### fn when.onPushToBranch
+
+```ts
+onPushToBranch(branch_name)
+```
+
+`onPushToBranch` will conditionally limit this step to a `push` event
+on `<branch_name>`
+
+
+#### fn when.onPushToMainBranch
+
+```ts
+onPushToMainBranch()
+```
+
+`onPushToMainBranch` will conditionally limit this step to a `push`
+event on `main` branch
+
+
+#### fn when.onPushToMasterBranch
+
+```ts
+onPushToMasterBranch()
+```
+
+`onPushToMasterBranch` will conditionally limit this step to a `push`
+event on `master` branch
+
+
+#### fn when.onSuccess
+
+```ts
+onSuccess()
+```
+
+`onSuccess` will conditionally limit this step to a successful
+pipeline
 
 
 #### fn when.withBranch

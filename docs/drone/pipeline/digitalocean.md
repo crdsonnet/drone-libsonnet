@@ -1,4 +1,4 @@
-# package pipeline_ssh
+# package digitalocean
 
 
 
@@ -11,25 +11,31 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+local drone = import "github.com/Duologic/drone-libsonnet";
 
-drone.pipeline_ssh.<attribute>
+dronepipeline.digitalocean.<attribute>
 
 ```
 
+## Subpackages
+
+* [step](digitalocean/step.md)
+
 ## Index
 
+* [`fn new(name)`](#fn-new)
 * [`fn withClone(value)`](#fn-withclone)
 * [`fn withCloneMixin(value)`](#fn-withclonemixin)
 * [`fn withDependsOn(value)`](#fn-withdependson)
 * [`fn withDependsOnMixin(value)`](#fn-withdependsonmixin)
 * [`fn withKind(value)`](#fn-withkind)
 * [`fn withName(value)`](#fn-withname)
+* [`fn withParallelStepsMixin(steps, dependsOn=["clone"])`](#fn-withparallelstepsmixin)
 * [`fn withPlatform(value)`](#fn-withplatform)
 * [`fn withPlatformMixin(value)`](#fn-withplatformmixin)
-* [`fn withServer(value)`](#fn-withserver)
 * [`fn withSteps(value)`](#fn-withsteps)
 * [`fn withStepsMixin(value)`](#fn-withstepsmixin)
+* [`fn withToken(value)`](#fn-withtoken)
 * [`fn withTrigger(value)`](#fn-withtrigger)
 * [`fn withTriggerMixin(value)`](#fn-withtriggermixin)
 * [`fn withType(value)`](#fn-withtype)
@@ -37,14 +43,29 @@ drone.pipeline_ssh.<attribute>
 * [`fn withWorkspaceMixin(value)`](#fn-withworkspacemixin)
 * [`obj clone`](#obj-clone)
   * [`fn withDepth(value)`](#fn-clonewithdepth)
-  * [`fn withDisable(value)`](#fn-clonewithdisable)
+  * [`fn withDisable()`](#fn-clonewithdisable)
   * [`fn withRetries(value)`](#fn-clonewithretries)
 * [`obj platform`](#obj-platform)
   * [`fn withArch(value)`](#fn-platformwitharch)
   * [`fn withOs(value)`](#fn-platformwithos)
   * [`fn withVariant(value)`](#fn-platformwithvariant)
   * [`fn withVersion(value)`](#fn-platformwithversion)
+* [`obj token`](#obj-token)
+  * [`obj types`](#obj-tokentypes)
+    * [`obj secret`](#obj-tokentypessecret)
+      * [`fn withFromSecret(value)`](#fn-tokentypessecretwithfromsecret)
 * [`obj trigger`](#obj-trigger)
+  * [`fn hourly()`](#fn-triggerhourly)
+  * [`fn nightly()`](#fn-triggernightly)
+  * [`fn onCronSchedule()`](#fn-triggeroncronschedule)
+  * [`fn onModifiedPath()`](#fn-triggeronmodifiedpath)
+  * [`fn onModifiedPaths()`](#fn-triggeronmodifiedpaths)
+  * [`fn onPromotion()`](#fn-triggeronpromotion)
+  * [`fn onPullRequest()`](#fn-triggeronpullrequest)
+  * [`fn onPullRequestAndPushToBranches()`](#fn-triggeronpullrequestandpushtobranches)
+  * [`fn onPushToBranches()`](#fn-triggeronpushtobranches)
+  * [`fn onPushToMainBranch()`](#fn-triggeronpushtomainbranch)
+  * [`fn onPushToMasterBranch()`](#fn-triggeronpushtomasterbranch)
   * [`fn withBranch(value)`](#fn-triggerwithbranch)
   * [`fn withBranchMixin(value)`](#fn-triggerwithbranchmixin)
   * [`fn withCron(value)`](#fn-triggerwithcron)
@@ -101,6 +122,14 @@ drone.pipeline_ssh.<attribute>
 
 ## Fields
 
+### fn new
+
+```ts
+new(name)
+```
+
+`new` is a shorthand for creating a new pipeline object
+
 ### fn withClone
 
 ```ts
@@ -149,6 +178,20 @@ withName(value)
 
 
 
+### fn withParallelStepsMixin
+
+```ts
+withParallelStepsMixin(steps, dependsOn=["clone"])
+```
+
+Pipeline steps are executed sequentially by default. You can optionally
+describe your build steps as a directed acyclic graph with `depends_on`.
+
+'`withParallelStepsMixin` will configure each step with `<dependsOn>` to
+ensure these steps are executed in parallel. By default it will set
+`depends_on` to 'clone'.
+
+
 ### fn withPlatform
 
 ```ts
@@ -165,14 +208,6 @@ withPlatformMixin(value)
 
 
 
-### fn withServer
-
-```ts
-withServer(value)
-```
-
-
-
 ### fn withSteps
 
 ```ts
@@ -185,6 +220,14 @@ withSteps(value)
 
 ```ts
 withStepsMixin(value)
+```
+
+
+
+### fn withToken
+
+```ts
+withToken(value)
 ```
 
 
@@ -243,9 +286,11 @@ withDepth(value)
 #### fn clone.withDisable
 
 ```ts
-withDisable(value)
+withDisable()
 ```
 
+`withDisable` is a shorthand for disabling cloning, it will also unset
+`clone.depth` and `clone.retries` to avoid confusion
 
 
 #### fn clone.withRetries
@@ -291,7 +336,132 @@ withVersion(value)
 
 
 
+### obj token
+
+
+#### obj token.types
+
+
+##### obj token.types.secret
+
+
+###### fn token.types.secret.withFromSecret
+
+```ts
+withFromSecret(value)
+```
+
+
+
 ### obj trigger
+
+
+#### fn trigger.hourly
+
+```ts
+hourly()
+```
+
+`hourly` will conditionally limit pipeline
+execution to a `hourly` `cron` event.
+
+
+#### fn trigger.nightly
+
+```ts
+nightly()
+```
+
+`hourly` will conditionally limit pipeline
+execution to a `nightly` `cron` event.
+
+
+#### fn trigger.onCronSchedule
+
+```ts
+onCronSchedule()
+```
+
+`onCronSchedule` will conditionally limit pipeline
+execution to a `cron` event with `<schedule>`
+
+
+#### fn trigger.onModifiedPath
+
+```ts
+onModifiedPath()
+```
+
+`onModifiedPath` shorthand for `onModifiedPaths([path])
+
+#### fn trigger.onModifiedPaths
+
+```ts
+onModifiedPaths()
+```
+
+`onModifiedPaths` will conditionally limit pipeline execution on changes
+to these paths (requires plugin)
+
+
+#### fn trigger.onPromotion
+
+```ts
+onPromotion()
+```
+
+`onPromotion` will conditionally limit pipeline
+execution to a `promotion` event
+
+
+#### fn trigger.onPullRequest
+
+```ts
+onPullRequest()
+```
+
+`onPullRequest` will conditionally limit pipeline
+execution to a `pull_request` event
+
+
+#### fn trigger.onPullRequestAndPushToBranches
+
+```ts
+onPullRequestAndPushToBranches()
+```
+
+`onPullRequestAndPushToBranches` will conditionally limit pipeline
+execution to `push` and `pull_request` events on `<branches>`
+
+
+#### fn trigger.onPushToBranches
+
+```ts
+onPushToBranches()
+```
+
+`onPushToBranches` will conditionally limit pipeline execution to
+a `push` event on `<branches>`
+
+
+#### fn trigger.onPushToMainBranch
+
+```ts
+onPushToMainBranch()
+```
+
+`onPushToMainBranch` will conditionally limit pipeline
+execution to a `push` event on `main` branch
+
+
+#### fn trigger.onPushToMasterBranch
+
+```ts
+onPushToMasterBranch()
+```
+
+`onPushToMasterBranch` will conditionally limit pipeline
+execution to a `push` event on `master` branch
 
 
 #### fn trigger.withBranch

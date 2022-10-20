@@ -8,7 +8,7 @@ test.new(std.thisFile)
   test.expect.eq(
     importstr 'out/.drone.single.yaml',
     drone.render.toYaml(
-      drone.pipeline_docker.new('pipeline1'),
+      drone.pipeline.docker.new('pipeline1'),
     ),
   )
 )
@@ -18,9 +18,9 @@ test.new(std.thisFile)
     importstr 'out/.drone.object.yaml',
     drone.render.toYaml({
       pipeline1:
-        drone.pipeline_docker.new('pipeline1'),
+        drone.pipeline.docker.new('pipeline1'),
       pipeline2:
-        drone.pipeline_docker.new('pipeline2'),
+        drone.pipeline.docker.new('pipeline2'),
     }),
   )
 )
@@ -29,8 +29,8 @@ test.new(std.thisFile)
   test.expect.eq(
     importstr 'out/.drone.array.yaml',
     drone.render.toYaml([
-      drone.pipeline_docker.new('pipeline1'),
-      drone.pipeline_docker.new('pipeline2'),
+      drone.pipeline.docker.new('pipeline1'),
+      drone.pipeline.docker.new('pipeline2'),
     ]),
   )
 )
@@ -40,12 +40,12 @@ test.new(std.thisFile)
     importstr 'out/.drone.combo.yaml',
     drone.render.toYaml({
       pipeline1:
-        drone.pipeline_docker.new('pipeline1'),
+        drone.pipeline.docker.new('pipeline1'),
       pipeline2:
-        drone.pipeline_docker.new('pipeline2'),
+        drone.pipeline.docker.new('pipeline2'),
       pipelines: [
-        drone.pipeline_docker.new('pipeline3'),
-        drone.pipeline_docker.new('pipeline4'),
+        drone.pipeline.docker.new('pipeline3'),
+        drone.pipeline.docker.new('pipeline4'),
       ],
     }),
   )

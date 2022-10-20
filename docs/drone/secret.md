@@ -11,7 +11,7 @@ jb install github.com/Duologic/drone-libsonnet@master
 ## Usage
 
 ```jsonnet
-local drone = import "github.com/Duologic/drone-libsonnet/main.libsonnet";
+local drone = import "github.com/Duologic/drone-libsonnet";
 
 drone.secret.<attribute>
 
@@ -19,6 +19,7 @@ drone.secret.<attribute>
 
 ## Index
 
+* [`fn new(name, path, key)`](#fn-new)
 * [`fn withData(value)`](#fn-withdata)
 * [`fn withGet(value)`](#fn-withget)
 * [`fn withGetMixin(value)`](#fn-withgetmixin)
@@ -29,6 +30,14 @@ drone.secret.<attribute>
   * [`fn withPath(value)`](#fn-getwithpath)
 
 ## Fields
+
+### fn new
+
+```ts
+new(name, path, key)
+```
+
+`new` is a shorthand for creating a new secret object
 
 ### fn withData
 

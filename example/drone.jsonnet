@@ -1,8 +1,8 @@
 // drone.jsonnet
-local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
+local drone = import '../aa.jsonnet';
 
-local pipeline = drone.pipeline_docker;
-local step = drone.step_docker;
+local pipeline = drone.pipeline.docker;
+local step = drone.pipeline.docker.step;
 
 local pipelines = {
   build_pipeline:
