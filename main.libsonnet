@@ -24,10 +24,10 @@ local package(name, parents=[]) = {
        + d.package.withUsageTemplate(|||
          local drone = import "%s";
 
-         drone%s%s.<attribute>
+         drone.%s%s.<attribute>
        ||| % [
          'github.com/Duologic/drone-libsonnet',
-         std.join('.', parents) + '.',
+         std.join('.', parents) + (if std.length(parents) != 0 then '.' else ''),
          name,
        ]),
 };

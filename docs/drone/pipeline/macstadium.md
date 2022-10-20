@@ -13,7 +13,7 @@ jb install github.com/Duologic/drone-libsonnet@master
 ```jsonnet
 local drone = import "github.com/Duologic/drone-libsonnet";
 
-dronepipeline.macstadium.<attribute>
+drone.pipeline.macstadium.<attribute>
 
 ```
 
