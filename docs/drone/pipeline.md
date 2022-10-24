@@ -26,9 +26,3 @@ drone.pipeline.<attribute>
 * [macstadium](pipeline/macstadium.md)
 * [ssh](pipeline/ssh.md)
 
-## Index
-
-
-
-## Fields
-

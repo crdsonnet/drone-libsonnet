@@ -60,9 +60,3 @@ drone jsonnet --stream \
 * [signature](drone/signature.md)
 * [template](drone/template.md)
 
-## Index
-
-
-
-## Fields
-
