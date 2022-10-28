@@ -12,7 +12,7 @@ jb install github.com/Duologic/drone-libsonnet@master
 
 ```jsonnet
 // drone.jsonnet
-local drone = import '../aa.jsonnet';
+local drone = import 'github.com/Duologic/drone-libsonnet/main.libsonnet';
 
 local pipeline = drone.pipeline.docker;
 local step = drone.pipeline.docker.step;
