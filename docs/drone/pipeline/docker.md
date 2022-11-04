@@ -93,36 +93,50 @@ drone.pipeline.docker.<attribute>
   * [`fn withTarget(value)`](#fn-triggerwithtarget)
   * [`fn withTargetMixin(value)`](#fn-triggerwithtargetmixin)
   * [`obj branch`](#obj-triggerbranch)
+    * [`fn withCondition(value)`](#fn-triggerbranchwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggerbranchwithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggerbranchwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggerbranchwithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggerbranchwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggerbranchwithincludemixin)
   * [`obj cron`](#obj-triggercron)
+    * [`fn withCondition(value)`](#fn-triggercronwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggercronwithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggercronwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggercronwithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggercronwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggercronwithincludemixin)
   * [`obj event`](#obj-triggerevent)
+    * [`fn withCondition(value)`](#fn-triggereventwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggereventwithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggereventwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggereventwithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggereventwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggereventwithincludemixin)
   * [`obj paths`](#obj-triggerpaths)
+    * [`fn withCondition(value)`](#fn-triggerpathswithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggerpathswithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggerpathswithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggerpathswithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggerpathswithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggerpathswithincludemixin)
   * [`obj ref`](#obj-triggerref)
+    * [`fn withCondition(value)`](#fn-triggerrefwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggerrefwithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggerrefwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggerrefwithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggerrefwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggerrefwithincludemixin)
   * [`obj repo`](#obj-triggerrepo)
+    * [`fn withCondition(value)`](#fn-triggerrepowithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggerrepowithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggerrepowithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggerrepowithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggerrepowithinclude)
     * [`fn withIncludeMixin(value)`](#fn-triggerrepowithincludemixin)
   * [`obj target`](#obj-triggertarget)
+    * [`fn withCondition(value)`](#fn-triggertargetwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-triggertargetwithconditionmixin)
     * [`fn withExclude(value)`](#fn-triggertargetwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-triggertargetwithexcludemixin)
     * [`fn withInclude(value)`](#fn-triggertargetwithinclude)
@@ -708,6 +722,22 @@ withTargetMixin(value)
 #### obj trigger.branch
 
 
+##### fn trigger.branch.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.branch.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn trigger.branch.withExclude
 
 ```ts
@@ -741,6 +771,22 @@ withIncludeMixin(value)
 
 
 #### obj trigger.cron
+
+
+##### fn trigger.cron.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.cron.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn trigger.cron.withExclude
@@ -778,6 +824,22 @@ withIncludeMixin(value)
 #### obj trigger.event
 
 
+##### fn trigger.event.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.event.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn trigger.event.withExclude
 
 ```ts
@@ -811,6 +873,22 @@ withIncludeMixin(value)
 
 
 #### obj trigger.paths
+
+
+##### fn trigger.paths.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.paths.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn trigger.paths.withExclude
@@ -848,6 +926,22 @@ withIncludeMixin(value)
 #### obj trigger.ref
 
 
+##### fn trigger.ref.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.ref.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn trigger.ref.withExclude
 
 ```ts
@@ -883,6 +977,22 @@ withIncludeMixin(value)
 #### obj trigger.repo
 
 
+##### fn trigger.repo.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.repo.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn trigger.repo.withExclude
 
 ```ts
@@ -916,6 +1026,22 @@ withIncludeMixin(value)
 
 
 #### obj trigger.target
+
+
+##### fn trigger.target.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn trigger.target.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn trigger.target.withExclude

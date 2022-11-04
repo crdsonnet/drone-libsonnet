@@ -55,36 +55,50 @@ drone.pipeline.step.<attribute>
   * [`fn withTarget(value)`](#fn-whenwithtarget)
   * [`fn withTargetMixin(value)`](#fn-whenwithtargetmixin)
   * [`obj branch`](#obj-whenbranch)
+    * [`fn withCondition(value)`](#fn-whenbranchwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whenbranchwithconditionmixin)
     * [`fn withExclude(value)`](#fn-whenbranchwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whenbranchwithexcludemixin)
     * [`fn withInclude(value)`](#fn-whenbranchwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-whenbranchwithincludemixin)
   * [`obj cron`](#obj-whencron)
+    * [`fn withCondition(value)`](#fn-whencronwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whencronwithconditionmixin)
     * [`fn withExclude(value)`](#fn-whencronwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whencronwithexcludemixin)
     * [`fn withInclude(value)`](#fn-whencronwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-whencronwithincludemixin)
   * [`obj event`](#obj-whenevent)
+    * [`fn withCondition(value)`](#fn-wheneventwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-wheneventwithconditionmixin)
     * [`fn withExclude(value)`](#fn-wheneventwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-wheneventwithexcludemixin)
     * [`fn withInclude(value)`](#fn-wheneventwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-wheneventwithincludemixin)
   * [`obj paths`](#obj-whenpaths)
+    * [`fn withCondition(value)`](#fn-whenpathswithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whenpathswithconditionmixin)
     * [`fn withExclude(value)`](#fn-whenpathswithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whenpathswithexcludemixin)
     * [`fn withInclude(value)`](#fn-whenpathswithinclude)
     * [`fn withIncludeMixin(value)`](#fn-whenpathswithincludemixin)
   * [`obj ref`](#obj-whenref)
+    * [`fn withCondition(value)`](#fn-whenrefwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whenrefwithconditionmixin)
     * [`fn withExclude(value)`](#fn-whenrefwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whenrefwithexcludemixin)
     * [`fn withInclude(value)`](#fn-whenrefwithinclude)
     * [`fn withIncludeMixin(value)`](#fn-whenrefwithincludemixin)
   * [`obj repo`](#obj-whenrepo)
+    * [`fn withCondition(value)`](#fn-whenrepowithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whenrepowithconditionmixin)
     * [`fn withExclude(value)`](#fn-whenrepowithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whenrepowithexcludemixin)
     * [`fn withInclude(value)`](#fn-whenrepowithinclude)
     * [`fn withIncludeMixin(value)`](#fn-whenrepowithincludemixin)
   * [`obj target`](#obj-whentarget)
+    * [`fn withCondition(value)`](#fn-whentargetwithcondition)
+    * [`fn withConditionMixin(value)`](#fn-whentargetwithconditionmixin)
     * [`fn withExclude(value)`](#fn-whentargetwithexclude)
     * [`fn withExcludeMixin(value)`](#fn-whentargetwithexcludemixin)
     * [`fn withInclude(value)`](#fn-whentargetwithinclude)
@@ -382,6 +396,22 @@ withTargetMixin(value)
 #### obj when.branch
 
 
+##### fn when.branch.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.branch.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn when.branch.withExclude
 
 ```ts
@@ -415,6 +445,22 @@ withIncludeMixin(value)
 
 
 #### obj when.cron
+
+
+##### fn when.cron.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.cron.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn when.cron.withExclude
@@ -452,6 +498,22 @@ withIncludeMixin(value)
 #### obj when.event
 
 
+##### fn when.event.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.event.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn when.event.withExclude
 
 ```ts
@@ -485,6 +547,22 @@ withIncludeMixin(value)
 
 
 #### obj when.paths
+
+
+##### fn when.paths.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.paths.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn when.paths.withExclude
@@ -522,6 +600,22 @@ withIncludeMixin(value)
 #### obj when.ref
 
 
+##### fn when.ref.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.ref.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn when.ref.withExclude
 
 ```ts
@@ -557,6 +651,22 @@ withIncludeMixin(value)
 #### obj when.repo
 
 
+##### fn when.repo.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.repo.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
+
+
 ##### fn when.repo.withExclude
 
 ```ts
@@ -590,6 +700,22 @@ withIncludeMixin(value)
 
 
 #### obj when.target
+
+
+##### fn when.target.withCondition
+
+```ts
+withCondition(value)
+```
+
+
+
+##### fn when.target.withConditionMixin
+
+```ts
+withConditionMixin(value)
+```
+
 
 
 ##### fn when.target.withExclude

@@ -5,15 +5,14 @@ local render = import './render.libsonnet';
 local schema = import './schema.libsonnet';
 
 local parsed =
-  crdsonnet.parse(
+  crdsonnet.fromSchema(
     'drone',
-    [],
     schema,
-    schema.definitions,
-  ).drone.types;
+    render='dynamic',
+  ).drone
+;
 
 
-//parsed.pipeline_docker.steps.withName('a')
 local package(name, parents=[]) = {
   '#': d.package.new(
          name,
