@@ -1,4 +1,4 @@
-# package secret
+# secret
 
 
 
@@ -23,7 +23,7 @@ drone.secret.<attribute>
 * [`fn withData(value)`](#fn-withdata)
 * [`fn withGet(value)`](#fn-withget)
 * [`fn withGetMixin(value)`](#fn-withgetmixin)
-* [`fn withKind(value)`](#fn-withkind)
+* [`fn withKind()`](#fn-withkind)
 * [`fn withName(value)`](#fn-withname)
 * [`obj get`](#obj-get)
   * [`fn withName(value)`](#fn-getwithname)
@@ -66,7 +66,7 @@ withGetMixin(value)
 ### fn withKind
 
 ```ts
-withKind(value)
+withKind()
 ```
 
 

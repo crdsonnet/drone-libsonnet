@@ -1,4 +1,4 @@
-# package macstadium
+# macstadium
 
 
 
@@ -28,7 +28,7 @@ drone.pipeline.macstadium.<attribute>
 * [`fn withCloneMixin(value)`](#fn-withclonemixin)
 * [`fn withDependsOn(value)`](#fn-withdependson)
 * [`fn withDependsOnMixin(value)`](#fn-withdependsonmixin)
-* [`fn withKind(value)`](#fn-withkind)
+* [`fn withKind()`](#fn-withkind)
 * [`fn withName(value)`](#fn-withname)
 * [`fn withParallelStepsMixin(steps, dependsOn=["clone"])`](#fn-withparallelstepsmixin)
 * [`fn withPlatform(value)`](#fn-withplatform)
@@ -37,7 +37,7 @@ drone.pipeline.macstadium.<attribute>
 * [`fn withStepsMixin(value)`](#fn-withstepsmixin)
 * [`fn withTrigger(value)`](#fn-withtrigger)
 * [`fn withTriggerMixin(value)`](#fn-withtriggermixin)
-* [`fn withType(value)`](#fn-withtype)
+* [`fn withType()`](#fn-withtype)
 * [`fn withWorkspace(value)`](#fn-withworkspace)
 * [`fn withWorkspaceMixin(value)`](#fn-withworkspacemixin)
 * [`obj clone`](#obj-clone)
@@ -174,7 +174,7 @@ withDependsOnMixin(value)
 ### fn withKind
 
 ```ts
-withKind(value)
+withKind()
 ```
 
 
@@ -252,7 +252,7 @@ withTriggerMixin(value)
 ### fn withType
 
 ```ts
-withType(value)
+withType()
 ```
 
 
@@ -313,6 +313,8 @@ withArch(value)
 
 
 
+Accepted values for `value` are arm, arm64, amd64, 386
+
 #### fn platform.withOs
 
 ```ts
@@ -320,6 +322,8 @@ withOs(value)
 ```
 
 
+
+Accepted values for `value` are linux, windows, darwin, freebsd, netbsd, openbsd, dragonfly, solaris
 
 #### fn platform.withVariant
 

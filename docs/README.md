@@ -1,4 +1,4 @@
-# package drone
+# drone
 
 Jsonnet library for generating Drone CI configuration file.
 

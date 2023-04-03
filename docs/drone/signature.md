@@ -1,4 +1,4 @@
-# package signature
+# signature
 
 
 
@@ -20,7 +20,7 @@ drone.signature.<attribute>
 ## Index
 
 * [`fn withHmac(value)`](#fn-withhmac)
-* [`fn withKind(value)`](#fn-withkind)
+* [`fn withKind()`](#fn-withkind)
 
 ## Fields
 
@@ -35,7 +35,7 @@ withHmac(value)
 ### fn withKind
 
 ```ts
-withKind(value)
+withKind()
 ```
 
 

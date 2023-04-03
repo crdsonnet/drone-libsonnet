@@ -1,4 +1,4 @@
-# package step
+# step
 
 
 
@@ -200,6 +200,8 @@ withFailure(value)
 
 
 
+Accepted values for `value` are always, ignore
+
 ### fn withImage
 
 ```ts
@@ -224,6 +226,8 @@ withNetworkMode(value)
 
 
 
+Accepted values for `value` are bridge, host
+
 ### fn withPrivileged
 
 ```ts
@@ -239,6 +243,8 @@ withPull(value)
 ```
 
 
+
+Accepted values for `value` are always, never, if-not-exists
 
 ### fn withSettings
 

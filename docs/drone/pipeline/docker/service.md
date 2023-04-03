@@ -1,4 +1,4 @@
-# package service
+# service
 
 
 
@@ -28,7 +28,7 @@ drone.pipeline.service.<attribute>
 * [`fn withImage(value)`](#fn-withimage)
 * [`fn withName(value)`](#fn-withname)
 * [`fn withPrivileged(value)`](#fn-withprivileged)
-* [`fn withPull(value)`](#fn-withpull)
+* [`fn withPull()`](#fn-withpull)
 * [`fn withVolumes(value)`](#fn-withvolumes)
 * [`fn withVolumesMixin(value)`](#fn-withvolumesmixin)
 * [`fn withWorkingDir(value)`](#fn-withworkingdir)
@@ -131,7 +131,7 @@ withPrivileged(value)
 ### fn withPull
 
 ```ts
-withPull(value)
+withPull()
 ```
 
 
@@ -302,3 +302,5 @@ withMedium(value)
 ```
 
 
+
+Accepted values for `value` are memory

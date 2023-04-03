@@ -1,4 +1,4 @@
-# package step
+# step
 
 
 
@@ -190,6 +190,8 @@ withFailure(value)
 
 
 
+Accepted values for `value` are always, ignore
+
 ### fn withImage
 
 ```ts
@@ -221,6 +223,8 @@ withPull(value)
 ```
 
 
+
+Accepted values for `value` are always, never, if-not-exists
 
 ### fn withResources
 

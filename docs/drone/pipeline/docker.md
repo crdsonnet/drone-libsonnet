@@ -1,4 +1,4 @@
-# package docker
+# docker
 
 
 
@@ -35,7 +35,7 @@ drone.pipeline.docker.<attribute>
 * [`fn withEnvironmentMixin(value)`](#fn-withenvironmentmixin)
 * [`fn withImagePullSecrets(value)`](#fn-withimagepullsecrets)
 * [`fn withImagePullSecretsMixin(value)`](#fn-withimagepullsecretsmixin)
-* [`fn withKind(value)`](#fn-withkind)
+* [`fn withKind()`](#fn-withkind)
 * [`fn withName(value)`](#fn-withname)
 * [`fn withNode(value)`](#fn-withnode)
 * [`fn withNodeMixin(value)`](#fn-withnodemixin)
@@ -48,7 +48,7 @@ drone.pipeline.docker.<attribute>
 * [`fn withStepsMixin(value)`](#fn-withstepsmixin)
 * [`fn withTrigger(value)`](#fn-withtrigger)
 * [`fn withTriggerMixin(value)`](#fn-withtriggermixin)
-* [`fn withType(value)`](#fn-withtype)
+* [`fn withType()`](#fn-withtype)
 * [`fn withVolumes(value)`](#fn-withvolumes)
 * [`fn withVolumesMixin(value)`](#fn-withvolumesmixin)
 * [`fn withWorkspace(value)`](#fn-withworkspace)
@@ -258,7 +258,7 @@ withImagePullSecretsMixin(value)
 ### fn withKind
 
 ```ts
-withKind(value)
+withKind()
 ```
 
 
@@ -368,7 +368,7 @@ withTriggerMixin(value)
 ### fn withType
 
 ```ts
-withType(value)
+withType()
 ```
 
 
@@ -456,6 +456,8 @@ withArch(value)
 
 
 
+Accepted values for `value` are arm, arm64, amd64, 386
+
 #### fn platform.withOs
 
 ```ts
@@ -463,6 +465,8 @@ withOs(value)
 ```
 
 
+
+Accepted values for `value` are linux, windows, darwin, freebsd, netbsd, openbsd, dragonfly, solaris
 
 #### fn platform.withVariant
 
@@ -1218,6 +1222,8 @@ withMedium(value)
 ```
 
 
+
+Accepted values for `value` are memory
 
 ### obj workspace
 
