@@ -38,7 +38,7 @@ Render the YAML file:
 drone jsonnet --stream \
               --format \
               --source <(jsonnet -J vendor/ drone.jsonnet) \
-              --target .drone.yml
+              --target .drone.yaml
 ```
 
 > Originally the intention was to render YAML with `std.manifestYamlStream()`,
