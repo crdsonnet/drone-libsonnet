@@ -5,7 +5,7 @@ Jsonnet library for generating Drone CI configuration file.
 ## Install
 
 ```
-jb install github.com/Duologic/drone-libsonnet@master
+jb install github.com/crdsonnet/drone-libsonnet@master
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-local crdsonnet = import 'github.com/Duologic/crdsonnet/crdsonnet/main.libsonnet';
+local crdsonnet = import 'github.com/crdsonnet/crdsonnet/crdsonnet/main.libsonnet';
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
 local render = import './render.libsonnet';
@@ -16,7 +16,7 @@ local parsed =
 local package(name, parents=[]) = {
   '#': d.package.new(
          name,
-         'github.com/Duologic/drone-libsonnet',
+         'github.com/crdsonnet/drone-libsonnet',
          '',
          'main.libsonnet',
        )
@@ -25,7 +25,7 @@ local package(name, parents=[]) = {
 
          drone.%s%s.<attribute>
        ||| % [
-         'github.com/Duologic/drone-libsonnet',
+         'github.com/crdsonnet/drone-libsonnet',
          std.join('.', parents) + (if std.length(parents) != 0 then '.' else ''),
          name,
        ]),
@@ -38,7 +38,7 @@ local lib =
   {
     '#': d.package.new(
            'drone',
-           'github.com/Duologic/drone-libsonnet',
+           'github.com/crdsonnet/drone-libsonnet',
            'Jsonnet library for generating Drone CI configuration file.',
            'main.libsonnet',
          )
