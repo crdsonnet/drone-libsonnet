@@ -190,6 +190,21 @@ local lib =
                 ),
                 onPullRequest(): self.event.withIncludeMixin(['pull_request']),
 
+                '#onTag':: d.fn(
+                  |||
+                    `onTag` will conditionally limit this step to a `tag` event
+                  |||,
+                ),
+                onTag(): self.event.withIncludeMixin(['tag']),
+
+                '#onTagPattern':: d.fn(
+                  |||
+                    `onTagPattern` will conditionally limit this step to the
+                    creation of a `tag` matching the pattern `tag_pattern`.
+                  |||,
+                ),
+                onTagPattern(tag_pattern): self.ref.withIncludeMixin(['refs/tags/' + tag_pattern]),
+
                 '#onSuccess':: d.fn(
                   |||
                     `onSuccess` will conditionally limit this step to a successful
