@@ -51,6 +51,8 @@ drone.pipeline.step.<attribute>
   * [`fn onPushToMainBranch()`](#fn-whenonpushtomainbranch)
   * [`fn onPushToMasterBranch()`](#fn-whenonpushtomasterbranch)
   * [`fn onSuccess()`](#fn-whenonsuccess)
+  * [`fn onTag()`](#fn-whenontag)
+  * [`fn onTagPattern()`](#fn-whenontagpattern)
   * [`fn withBranch(value)`](#fn-whenwithbranch)
   * [`fn withBranchMixin(value)`](#fn-whenwithbranchmixin)
   * [`fn withCron(value)`](#fn-whenwithcron)
@@ -381,6 +383,25 @@ onSuccess()
 
 `onSuccess` will conditionally limit this step to a successful
 pipeline
+
+
+#### fn when.onTag
+
+```ts
+onTag()
+```
+
+`onTag` will conditionally limit this step to a `tag` event
+
+
+#### fn when.onTagPattern
+
+```ts
+onTagPattern()
+```
+
+`onTagPattern` will conditionally limit this step to the
+creation of a `tag` matching the pattern `tag_pattern`.
 
 
 #### fn when.withBranch
