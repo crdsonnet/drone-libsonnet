@@ -1,7 +1,6 @@
 # drone
 
 Jsonnet library for generating Drone CI configuration file.
-
 ## Install
 
 ```
@@ -53,10 +52,10 @@ drone jsonnet --stream \
 
 ```
 
+
 ## Subpackages
 
-* [pipeline](drone/pipeline.md)
-* [secret](drone/secret.md)
-* [signature](drone/signature.md)
-* [template](drone/template.md)
-
+* [pipeline](pipeline/index.md)
+* [secret](secret.md)
+* [signature](signature.md)
+* [template](template.md)
