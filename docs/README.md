@@ -8,6 +8,12 @@ Jsonnet library for generating Drone CI configuration file.
 jb install github.com/crdsonnet/drone-libsonnet@master
 ```
 
+in the same directory, make sure you install all the necessary dependencies by running:
+
+```
+jb install
+```
+
 ## Usage
 
 ```jsonnet
@@ -32,7 +38,15 @@ drone.render.getDroneObjects(pipelines)
 
 ```
 
-Render the YAML file:
+## Generate drone YAML
+
+### Install `jsonnet`
+
+The suggested jsonnet version is `go-jsonnet`, you can get it here: 
+
+[Installation instructions](https://github.com/google/go-jsonnet#installation-instructions)
+
+### Render the YAML file
 
 ```console
 drone jsonnet --stream \
