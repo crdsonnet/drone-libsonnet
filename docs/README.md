@@ -8,12 +8,6 @@ Jsonnet library for generating Drone CI configuration file.
 jb install github.com/crdsonnet/drone-libsonnet@master
 ```
 
-in the same directory, make sure you install all the necessary dependencies by running:
-
-```
-jb install
-```
-
 ## Usage
 
 ```jsonnet
